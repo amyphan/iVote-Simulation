@@ -46,6 +46,7 @@ public class IVoteServices
 	}
 	public void output()
 	{
+		this.countAnswers();
 		for(int ndx = 0; ndx < this.candidateAnswer.size(); ndx ++)
 		{
 			System.out.println(this.candidateAnswer.get(ndx) + " :" + this.count[ndx]);

@@ -2,10 +2,11 @@ package iVote;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Student 
 {
-	private ArrayList<String> answers = new ArrayList<String>();
+	private List<String> answers = new ArrayList<String>();
 	private String id;
 	
 	public Student(String id, String[] choices)
@@ -19,7 +20,7 @@ public class Student
 	}
 	public String[] getAnswers()
 	{
-		return (String[]) answers.toArray();
+		return answers.toArray(new String[0]);
 	}
 	public String getID()
 	{
