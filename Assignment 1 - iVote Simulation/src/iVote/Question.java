@@ -2,17 +2,18 @@ package iVote;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Question 
 {
 	private String questionAsked;
-	private String correctAnswers;
+	private List<String> correctAnswers = new ArrayList<String>();
 	private ArrayList<String> choices = new ArrayList<String>();
 	
-	public Question(String asked, String answer, String[] choice)
+	public Question(String asked, String[] answer, String[] choice)
 	{
 		this.questionAsked = asked;
-		this.correctAnswers = answer;
+		Collections.addAll(this.correctAnswers, answer);
 		Collections.addAll(this.choices, choice);
 	}
 	public void setChoices(String[] choice)
@@ -31,21 +32,22 @@ public class Question
 	{
 		return this.questionAsked;
 	}
-	public String getCorrectAnswers()
+	public String[] getCorrectAnswers()
 	{
-		return this.correctAnswers;
+		return this.correctAnswers.toArray(new String[0]);
 	}
-	public void setCorrectAnswers(String answer)
+	public void setCorrectAnswers(String[] answer)
 	{
-		this.correctAnswers = answer;
+		Collections.addAll(this.correctAnswers, answer);
 	}
 	public void print()
 	{
-		int count = 0;
-		System.out.print("Question: " + this.questionAsked);
+		int count = 1;
+		System.out.println("Question: " + this.questionAsked);
+		System.out.println("Choices Avaliable: ");
 		for(int ndx = 0; ndx < this.choices.size(); ndx ++)
 		{
-			System.out.println(count++ + ": " + this.choices.get(ndx));
+			System.out.println(count++ + ". " + this.choices.get(ndx));
 		}
 	}
 }

@@ -10,11 +10,14 @@ public class SimulationDriver
 	{
 		String question = "What is 4 + 4 ?";
 		String type = "multi";
-		String[] choices = {"8", "12", "40", "16", "1", "0"}; 
-		System.out.println(question);
+		String[] choices = {"8", "12", "40", "16", "1", "0"};
+		String[] correctAnswer = {"8"};
+		
+		Question q1 = new Question(question, correctAnswer, choices);
 	
-		IVoteServices poll = new IVoteServices(question, type, choices);
+		IVoteServices poll = new IVoteServices(q1, type);
 		generateStudents(poll, choices);
+		q1.print();
 		poll.output();
 	}
 	private static void generateStudents(IVoteServices poll, String[] answers)

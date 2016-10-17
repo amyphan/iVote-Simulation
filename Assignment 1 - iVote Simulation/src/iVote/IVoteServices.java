@@ -12,12 +12,12 @@ public class IVoteServices
 	private ArrayList<Student> students = new ArrayList<Student>();
 	private int[] count;
 	
-	public IVoteServices(String question, String type, String[] answers)
+	public IVoteServices(Question question, String type)
 	{
 		this.type = type;
-		this.question = question;
-		Collections.addAll(candidateAnswer, answers);
-		count = new int[answers.length];
+		this.question = question.getQuestionAsked();
+		this.candidateAnswer = question.getChoices();
+		count = new int[this.candidateAnswer.size()];
 	}
 	public void addStudent(String[] answers)
 	{
@@ -47,9 +47,12 @@ public class IVoteServices
 	public void output()
 	{
 		this.countAnswers();
+		System.out.println("\nNumber of Participants: " + students.size() );
+		System.out.println("Results:");
+		
 		for(int ndx = 0; ndx < this.candidateAnswer.size(); ndx ++)
 		{
-			System.out.println(this.candidateAnswer.get(ndx) + " :" + this.count[ndx]);
+			System.out.println(this.candidateAnswer.get(ndx) + ": " + this.count[ndx]);
 		}
 	}
 
