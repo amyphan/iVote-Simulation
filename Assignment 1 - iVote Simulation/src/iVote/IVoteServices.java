@@ -21,7 +21,12 @@ public class IVoteServices
 	}
 	public void addStudent(String[] answers)
 	{
-		students.add(new Student(this.generateID(), answers)); 
+		if (this.type.equals("multi") && answers.length > 1)
+			students.add(new Student(this.generateID(), answers));
+		else if (this.type.equals("single") && answers.length == 1)
+			students.add(new Student(this.generateID(), answers));
+		else
+			System.out.println("Invalid type");
 	}
 	private String generateID()
 	{
