@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//Question class in which contains the questioned asked, the correct answer for the poll, and the choices available for the user to pick.
+//There is also a print method to print out the question along with the choices available.
+
 public class Question 
 {
 	private String questionAsked;
@@ -15,6 +18,7 @@ public class Question
 		this.questionAsked = asked;
 		Collections.addAll(this.correctAnswers, answer);
 		Collections.addAll(this.choices, choice);
+		System.out.println("Choices list size: " + this.choices.size());
 	}
 	public void setChoices(String[] choice)
 	{

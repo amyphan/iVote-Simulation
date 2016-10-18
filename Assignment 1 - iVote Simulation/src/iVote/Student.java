@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//Student class, contains unique id and the choices that the student has chosen as their answer
 public class Student 
 {
-	private List<String> answers = new ArrayList<String>();
+	private ArrayList<String> answers = new ArrayList<String>();
 	private String id;
 	
 	public Student(String id, String[] choices)
@@ -14,13 +15,14 @@ public class Student
 		this.id = id;
 		Collections.addAll(answers, choices);
 	}
+	
 	public void setAnswers(String answer)
 	{
 		this.answers.add(answer);
 	}
-	public String[] getAnswers()
+	public ArrayList<String> getAnswers()
 	{
-		return answers.toArray(new String[0]);
+		return answers;
 	}
 	public String getID()
 	{
